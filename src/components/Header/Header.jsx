@@ -1,85 +1,25 @@
 import React from "react";
-import { styled, alpha } from '@mui/material/styles';
-import { Box, Toolbar, AppBar,Typography,InputBase,List,ListItem } from "@mui/material";
-import SearchIcon from '@mui/icons-material/Search';
-import Button from '@mui/material/Button';
-const HeaderBox = styled(Box)(() => ({
-  width:"100vw",
-  display:'flex',
-  flexDirection:'row',
-  alignContent:'space-between',
-  justifyContent:'space-between',
-  alignItems:'center'
+import {
+  Box,
+  Toolbar,
+  AppBar,
+  Typography,
+  Button
+} from "@mui/material";
+import SearchIcon from "@mui/icons-material/Search";
 
-}));
-const HeaderLeftBox = styled(Box)(() => ({
-  display: 'flex',
-  flexWrap: 'wrap',
-  alignContent:'center',
-  justifyContent: 'center',
-  alignItems:'center',
+import {
+  HeaderBox,
+  HeaderLeftBox,
+  HeaderRightBox,
+  HeaderRightBoxList,
+  HeaderRightBoxListItem,
+  Search,
+  SearchIconWrapper,
+  StyledInputBase,
+} from "./headerStyle";
 
-}));
-
-const HeaderRightBox = styled(Box)(() => ({
-  
-}));
-const HeaderRightBoxList = styled(List)(() => ({
-    display:"flex",
-    color:"#978CC3",
-    fontFamily:"Montserrat",
-
-    
-
-}));
-const HeaderRightBoxListItem = styled(ListItem)(() => ({
-  color:"#978CC3",
-  fontFamily:"Montserrat",
- 
-    "&:hover": {
-      color: "white",
-    }
-  
-
-}));
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: "#262633",
-  
-  marginRight: theme.spacing(2),
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    
-    // fontFamily: "Montserrat",
-    color: "#fff",
-   
-  },
-}));
-
+import {MenuData} from '../../StaticData/index'
 const Header = () => {
   return (
     <>
@@ -93,7 +33,6 @@ const Header = () => {
           <Toolbar>
             <HeaderBox>
               <HeaderLeftBox>
-
                 <Box
                   component="img"
                   sx={{
@@ -101,55 +40,72 @@ const Header = () => {
                   }}
                   alt="LOGO"
                   src="/assests/images/logo.svg"
-                >
-                 
-
-                </Box>
+                ></Box>
                 <Typography
-                    variant="h6"
-                    component="p"
-                    mx={3}
-                    fontSize="16px"
-                    lineHeight="25px"
-                    fontWeight={600}
-                    color="white"
-                    fontFamily= {'Montserrat'}
-                  
-                  >
-                    NFTNerds
-                  </Typography>
-                  <Search>
-                    <SearchIconWrapper>
-                      <SearchIcon/>
-                    </SearchIconWrapper>
-                    <StyledInputBase
-                      placeholder="Search..."
-                      inputProps={{"aria-label":"search"}}
-                    />
-                  </Search>
+                  variant="h6"
+                  component="p"
+                  mx={3}
+                  fontSize="16px"
+                  lineHeight="25px"
+                  fontWeight={600}
+                  color="white"
+                  fontFamily={"Montserrat"}
+                >
+                  NFTNerds
+                </Typography>
+                <Search>
+                  <SearchIconWrapper>
+                    <SearchIcon />
+                  </SearchIconWrapper>
+                  <StyledInputBase
+                    placeholder="Search..."
+                    inputProps={{ "aria-label": "search" }}
+                  />
+                </Search>
               </HeaderLeftBox>
               <HeaderRightBox>
-                
-              <Box>
-              <HeaderRightBoxList>
-                                                                           
+                <Box>
+                  <HeaderRightBoxList>
+                    {/* 
+                    MenuData is an  array 
+                    values inside array is called element
+                    element can be numbers,string , object , boolean etc 
 
-                  <HeaderRightBoxListItem>FireHose</HeaderRightBoxListItem>
-                  <HeaderRightBoxListItem>Trending</HeaderRightBoxListItem>
-                  <HeaderRightBoxListItem>Assets</HeaderRightBoxListItem>
-                  <HeaderRightBoxListItem>FAQ</HeaderRightBoxListItem>
-                  <Button sx={{
-                    fontSize:"10px",
-                  }}
-size="large" 
-color="secondary" variant="outlined">CONNECT</Button>
-                </HeaderRightBoxList>
-                
-              </Box>
+                    here element is object 
+                    element inside MenuData == 
+
+                    1) map is an array method just like length etc
+                    2) its a callbacj function
+                    3)Callback function jo apne andar aik aur function leta han 
+                    4)yeh element aur index leta han 
+                    5)element is object
+                    */}
+                    {
+                      MenuData.map((element,index)=> <HeaderRightBoxListItem
+                      key={index}
+                      >
+                        {element.title}
+                      </HeaderRightBoxListItem>)
+                    }
+               
+
+
+
               
+                    <Button
+                      sx={{
+                        fontSize: "10px",
+                      }}
+                      size="large"
+                      color="secondary"
+                      variant="outlined"
+                    >
+                      CONNECT
+                    </Button>
+                  </HeaderRightBoxList>
+                </Box>
               </HeaderRightBox>
             </HeaderBox>
-  
           </Toolbar>
         </AppBar>
       </Box>
