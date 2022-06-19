@@ -23,7 +23,7 @@ import {MenuData} from '../../StaticData/index'
 const Header = () => {
   return (
     <>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box >
         <AppBar
           position="static"
           sx={{
@@ -66,20 +66,7 @@ const Header = () => {
               <HeaderRightBox>
                 <Box>
                   <HeaderRightBoxList>
-                    {/* 
-                    MenuData is an  array 
-                    values inside array is called element
-                    element can be numbers,string , object , boolean etc 
-
-                    here element is object 
-                    element inside MenuData == 
-
-                    1) map is an array method just like length etc
-                    2) its a callbacj function
-                    3)Callback function jo apne andar aik aur function leta han 
-                    4)yeh element aur index leta han 
-                    5)element is object
-                    */}
+                   
                     {
                       MenuData.map((element,index)=> <HeaderRightBoxListItem
                       key={index}
@@ -88,9 +75,6 @@ const Header = () => {
                       </HeaderRightBoxListItem>)
                     }
                
-
-
-
               
                     <Button
                       sx={{

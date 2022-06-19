@@ -1,17 +1,15 @@
 import "./App.css";
 import Config from "./configuration/Config";
-import {Header, Footer} from './components/index'
-
+import { Header, Footer } from "./components/index";
 
 function App() {
   return (
     <>
-    <div className="app">
-      <Header/>
-  <Config/>
-    <Footer/>
-    </div>
-      
+      <div className="app">
+        <Header />
+        <Config />
+        <Footer />
+      </div>
     </>
   );
 }
