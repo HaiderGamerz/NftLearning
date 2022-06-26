@@ -1,23 +1,30 @@
 import React from 'react'
 import {
   Box,
-  Typography,
-  Button
 } from "@mui/material";
-const TextBox = () => {
+import {  TextBoxBtn,
+  TextBoxTypographyPara,
+  TextBoxTypographyH1} from './textBoxStyle'
+
+const TextBox = ({title,para1,para2}) => {
   return (
     <>
     <Box>
-      <Typography variant="h1">
-      Buy quicker than others
-      </Typography>
-      <Typography variant="p">
-      From spotting a listing to approving the transaction in 4 seconds.
-      </Typography>
+      <TextBoxTypographyH1 variant="h1" >
+      {title}
+      </TextBoxTypographyH1>
       <br/>
-      <Typography variant="p">
-      Alerts with buy auto-triggers when a token matches your filter criteria.
-      </Typography>
+      <TextBoxTypographyPara variant="p" >
+      {para1}
+      </TextBoxTypographyPara>
+      <br/>
+      <TextBoxTypographyPara variant="p">
+     {para2}
+      </TextBoxTypographyPara>
+      <br/>
+      <TextBoxBtn>
+        SETUP ALERTS
+      </TextBoxBtn>
     </Box>
     </>
   )

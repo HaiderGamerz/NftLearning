@@ -1,15 +1,15 @@
 import React from "react";
 import { Box } from "@mui/material";
-const ImageBox = () => {
+const ImageBox = ({imgSrc}) => {
   return (
     <>
       <Box
         component="img"
         sx={{
-        width:"220px"
+        width:"80%"
         }}
         alt="The house from the offer."
-        src="https://d354yzmfb4qqsa.cloudfront.net/static/buy4.png"
+        src={imgSrc}
       />
     </>
   );
